@@ -2,15 +2,15 @@ import React from "react";
 
 import styles from './index.css'
 
-const NavButton = function(props) {
-    function handleClick(e) {
-        e.preventDefault()
-
-        console.log(e)
-    }
-
+const NavButton = function (props) {
     return (
-        <button className={styles.nav} onClick={handleClick}>{props.label}</button>
+        <button
+            className={
+                `${styles.nav}
+                ${props.active ? styles.active : ''}`
+            }
+            onClick={() => { props.handleClick(props.label) }}
+        >{props.label}</button>
     )
 }
 
