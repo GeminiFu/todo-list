@@ -1,0 +1,14 @@
+.body-wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.body {
+    width: 50vw;
+    height: 100vw;
+
+    display: flex;
+    flex-direction: column;
+}

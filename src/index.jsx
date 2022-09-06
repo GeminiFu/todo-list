@@ -1,11 +1,16 @@
 import React from "react";
 import ReactDOM from 'react-dom';
 
-import TodoList from './views/TodoList'
+import styles from './index.css'
+
+import Nav from './components/Nav'
 
 ReactDOM.render(
-  <>
-    <TodoList />
-  </>,
+
+  <div className={styles['body-wrapper']}>
+    <div className={styles['body']}>
+      <Nav />
+    </div>
+  </div>,
   document.getElementById('root')
 );
