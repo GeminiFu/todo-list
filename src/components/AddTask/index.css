@@ -1,0 +1,12 @@
+.wrapper {
+    border: 2px solid C8C8C8;
+    border-radius: 5px;
+    background-color: white;
+    width: 80%;
+    margin: 1rem;
+}
+
+.text {
+    font-size: 1.5rem;
+    color: #C8C8C8;
+}
