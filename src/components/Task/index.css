@@ -1,0 +1,82 @@
+.wrapper {
+    width: 60%;
+    border-radius: 5px;
+    box-shadow: 0 4px 4px 0 #C8C8C8;
+    background: #F2F2F2;
+    margin: 1rem;
+    overflow: hidden;
+}
+
+/* task header */
+.task-header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    background-color: #F2F2F2;
+}
+
+.left-wrapper {
+    display: flex;
+    width: 80%;
+    padding: 1rem;
+}
+
+.right-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.hr {
+    border: 2px solid #C8C8C8;
+}
+
+/* task body */
+.task-body-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
+
+.deadline-wrapper,
+.file-wrapper,
+.comment-wrapper {
+    width: 80%;
+
+}
+
+div>label {
+    display: block;
+}
+
+.deadline-wrapper {}
+
+.file-wrapper {}
+
+.comment-wrapper {}
+
+/* task footer */
+.task-footer-wrapper {}
+
+.cancel-wrapper,
+.add-task-wrapper {
+    width: 50%;
+    border: none;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 1rem 0;
+
+}
+
+.cancel-wrapper {
+    background-color: #FFFFFF;
+
+
+    color: #D0021B;
+}
+
+.add-task-wrapper {
+
+    background-color: #4A90E2;
+    color: #FFFFFF;
+}

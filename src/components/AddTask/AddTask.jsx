@@ -3,11 +3,14 @@ import React, { useState } from "react";
 
 import styles from './index.css'
 import Task from '../Task'
+import useWatchState from "../../hooks/useWatchState";
 
 const AddTask = function () {
 
     // TODO: default false
     const [active, setActive] = useState(true)
+
+    // useWatchState('active', active)
 
     if (active) {
         return <Task
