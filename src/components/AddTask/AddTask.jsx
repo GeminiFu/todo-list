@@ -5,7 +5,7 @@ import styles from './index.css'
 import Task from '../Task'
 import useWatchState from "../../hooks/useWatchState";
 
-const AddTask = function () {
+const AddTask = function (props) {
 
     // TODO: default false
     const [active, setActive] = useState(true)
@@ -16,7 +16,7 @@ const AddTask = function () {
         return <Task
             setActive={setActive}
             formTask={{
-                // method: useAddTask,
+                method: props.addTask,
                 name: 'Add Task'
             }}
         />

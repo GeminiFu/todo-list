@@ -1,9 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import styles from './index.css'
 
 const Task = (props) => {
     const formTask = props.formTask
+
+    const initTask = {
+        title: '',
+        deadline: '',
+        file: '',
+        comment: '',
+        id: 0,
+        important: false,
+        completed: false,
+    }
+
+    const [task, setTask] = useState(initTask)
 
     return (
         <div className={styles['wrapper']}>
@@ -47,7 +59,7 @@ const Task = (props) => {
                 >X Cancel</button>
                 <button
                     className={styles['add-task-wrapper']}
-                    onClick={() => { }}
+                    onClick={() => { formTask.method() }}
                 >+ {formTask.name}</button>
             </div>
         </div>
