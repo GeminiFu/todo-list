@@ -1,3 +1,3 @@
-import MyTask from './MyTack.jsx'
+import MyTask from './MyTask.jsx'
 
 export default MyTask
