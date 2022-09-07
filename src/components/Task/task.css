@@ -1,0 +1,13 @@
+.wrapper {
+    width: 60%;
+    border-radius: 5px;
+    box-shadow: 0 4px 4px 0 #C8C8C8;
+    background: #F2F2F2;
+    margin: 1rem;
+    overflow: hidden;
+}
+
+
+.hr {
+    border: 2px solid #C8C8C8;
+}

@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from 'react-dom';
 import { HashRouter, Routes, Route } from "react-router-dom"
 
+import basicStyles from './basic.css'
 import styles from './index.css'
 
 import Nav from './components/Nav'
