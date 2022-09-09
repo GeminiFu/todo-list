@@ -1,9 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Task from '../Task'
 
-const MyTack = () => {
+const MyTask = (props) => {
+  console.log('My Task', props.filterTaskList())
+
+  const [active, setActive] = useState(false)
+
   return (
-    <div>MyTask</div>
+    props.filterTaskList().map((task) =>
+      < Task
+        active={active}
+        setActive={setActive}
+        formTask={{
+          method: props.addTask,
+          name: 'Update Task'
+        }
+        }
+        initTask={task}
+      />
+    )
   )
 }
 
-export default MyTack
+export default MyTask

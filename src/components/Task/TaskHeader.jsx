@@ -3,6 +3,7 @@ import React from 'react'
 import styles from './index.css'
 
 const TaskHeader = (props) => {
+
     return (
         <div className={styles['task-header-wrapper']}>
             <div className={styles['left-wrapper']}>
@@ -19,6 +20,7 @@ const TaskHeader = (props) => {
                     }
                 />
                 <input
+                    required
                     type="text"
                     placeholder='title'
                     value={props.temptTask.title}

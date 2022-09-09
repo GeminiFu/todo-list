@@ -23,9 +23,9 @@ function Todo() {
           <Nav />
           <AddTask addTask={taskHook.addTask} />
           <Routes>
-            <Route path="/" element={<MyTask />} />
-            <Route path="/inproccess" element={<InProccess />} />
-            <Route path="/completed" element={<Completed />} />
+            <Route path="/" element={<MyTask filterTaskList={taskHook.filterTaskList} />} />
+            <Route path="/inproccess" element={<InProccess filterTaskList={taskHook.filterTaskList} />} />
+            <Route path="/completed" element={<Completed filterTaskList={taskHook.filterTaskList} />} />
           </Routes>
         </HashRouter>
       </div>

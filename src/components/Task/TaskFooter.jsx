@@ -4,7 +4,6 @@ import styles from './index.css'
 
 const TaskFooter = (props) => {
     const formTask = props.formTask
-    console.log('taskFooter', props.temptTask)
 
     return (
         <div className={styles['task-footer-wrapper']}>

@@ -22,6 +22,7 @@ const AddTask = function (props) {
 
     if (active) {
         return <Task
+            active={active}
             setActive={setActive}
             formTask={{
                 method: props.addTask,
