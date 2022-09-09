@@ -4,18 +4,8 @@ import { Link } from "react-router-dom"
 import styles from './index.css'
 
 const NavButton = function (props) {
-
-    function labelToUrl(label) {
-        let newLabel = label.toLowerCase()
-        newLabel = newLabel.replace(/\s/g, "")
-
-        return newLabel
-    }
-
-    const url = labelToUrl(props.label)
-
     return (
-        <Link to={url}>
+        <Link to={props.url}>
             <button
                 className={
                     `${styles.nav}

@@ -23,7 +23,7 @@ function Todo() {
           <Nav />
           <AddTask addTask={taskHook.addTask} />
           <Routes>
-            <Route path="/mytask" element={<MyTask />} />
+            <Route path="/" element={<MyTask />} />
             <Route path="/inproccess" element={<InProccess />} />
             <Route path="/completed" element={<Completed />} />
           </Routes>

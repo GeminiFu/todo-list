@@ -6,9 +6,17 @@ import Task from '../Task'
 import useWatchState from "../../hooks/useWatchState";
 
 const AddTask = function (props) {
+    const initTask = {
+        title: '',
+        deadline: ['', ''],
+        file: '',
+        comment: '',
+        id: 0,
+        important: false,
+        completed: false,
+    }
 
-    // TODO: default false
-    const [active, setActive] = useState(true)
+    const [active, setActive] = useState(false)
 
     // useWatchState('active', active)
 
@@ -19,6 +27,7 @@ const AddTask = function (props) {
                 method: props.addTask,
                 name: 'Add Task'
             }}
+            initTask={initTask}
         />
     } else {
         return (

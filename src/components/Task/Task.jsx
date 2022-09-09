@@ -1,67 +1,34 @@
 import React, { useState } from 'react'
+import useWatchState from '../../hooks/useWatchState'
 
 import styles from './index.css'
+import TaskBody from './TaskBody'
+import TaskFooter from './TaskFooter'
+import TaskHeader from './TaskHeader'
 
 const Task = (props) => {
-    const formTask = props.formTask
+    const initTask = props.initTask
 
-    const initTask = {
-        title: '',
-        deadline: '',
-        file: '',
-        comment: '',
-        id: 0,
-        important: false,
-        completed: false,
-    }
+    const [temptTask, setTemptTask] = useState(initTask)
 
-    const [task, setTask] = useState(initTask)
+    // useWatchState('temptTask', temptTask)
 
     return (
         <div className={styles['wrapper']}>
-
-            {/* task header */}
-            <div className={styles['task-header-wrapper']}>
-                <div className={styles['left-wrapper']}>
-                    <input type="checkbox" />
-                    <input type="text" placeholder='title' />
-                </div>
-                <div className={styles['right-wrapper']}>
-                    <input type="checkbox" />
-                    <input type="checkbox" />
-                </div>
-            </div>
-
+            <TaskHeader
+                temptTask={temptTask}
+                setTemptTask={setTemptTask}
+            />
             <hr className={styles['hr']} />
-
-            {/* task body */}
-            <div className={styles['task-body-wrapper']}>
-                <div className={styles['deadline-wrapper']}>
-                    <label>Deadline</label>
-                    <input type="date" />
-                    <input type="datetime" />
-                </div>
-                <div className={styles['file-wrapper']}>
-                    <label>File</label>
-                    <button>+</button>
-                </div>
-                <div className={styles['comment-wrapper']}>
-                    <label>Comment</label>
-                    <input type="text" placeholder='Tyoe your memo here...' />
-                </div>
-            </div>
-
-            {/* task footer */}
-            <div className={styles['task-footer-wrapper']}>
-                <button
-                    className={styles['cancel-wrapper']}
-                    onClick={() => { props.setActive(false) }}
-                >X Cancel</button>
-                <button
-                    className={styles['add-task-wrapper']}
-                    onClick={() => { formTask.method() }}
-                >+ {formTask.name}</button>
-            </div>
+            <TaskBody
+                temptTask={temptTask}
+                setTemptTask={setTemptTask}
+            />
+            <TaskFooter
+                setActive={props.setActive}
+                formTask={props.formTask}
+                temptTask={temptTask}
+            />
         </div>
     )
 }

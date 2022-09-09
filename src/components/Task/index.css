@@ -53,6 +53,16 @@ div>label {
 
 .file-wrapper {}
 
+.file-button {
+    padding: 0;
+}
+
+.file-button-label {
+    margin: 0 0.5rem;
+}
+
+
+
 .comment-wrapper {}
 
 /* task footer */
