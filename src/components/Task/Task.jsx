@@ -8,19 +8,31 @@ import TaskHeader from './TaskHeader'
 
 const Task = (props) => {
     const [temptTask, setTemptTask] = useState(props.initTask)
+    const [active, setActive] = useState(false)
+
+    function changeTemptTask(key, value) {
+        temptTask[key] = value
+        setTemptTask({ ...temptTask, })
+    }
 
     // useWatchState('temptTask', temptTask)
-
 
 
     return (
         <div className={styles['wrapper']}>
             <TaskHeader
+                // TODO: TaskHeader 
+                // active === false
+                // 可以直接修改
+                // active === true
+                // 需按下按鈕才修改
                 temptTask={temptTask}
-                setTemptTask={setTemptTask}
+                changeTemptTask={changeTemptTask}
+                active={active}
+                setActive={setActive}
             />
             {(() => {
-                if (props.active) {
+                if (active) {
                     return (
                         <>
                             <hr className={styles['hr']} />
@@ -29,7 +41,7 @@ const Task = (props) => {
                                 setTemptTask={setTemptTask}
                             />
                             <TaskFooter
-                                setActive={props.setActive}
+                                setActive={setActive}
                                 formTask={props.formTask}
                                 temptTask={temptTask}
                             />

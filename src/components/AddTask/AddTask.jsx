@@ -24,11 +24,11 @@ const AddTask = function (props) {
         return <Task
             active={active}
             setActive={setActive}
+            initTask={initTask}
             formTask={{
                 method: props.addTask,
                 name: 'Add Task'
             }}
-            initTask={initTask}
         />
     } else {
         return (

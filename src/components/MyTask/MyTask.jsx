@@ -6,17 +6,19 @@ const MyTask = (props) => {
 
   const [active, setActive] = useState(false)
 
+
+
+
   return (
     props.filterTaskList().map((task) =>
       < Task
-        active={active}
         setActive={setActive}
+        initTask={task}
         formTask={{
           method: props.addTask,
           name: 'Update Task'
         }
         }
-        initTask={task}
       />
     )
   )

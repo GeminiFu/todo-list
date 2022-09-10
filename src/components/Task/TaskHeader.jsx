@@ -10,43 +10,25 @@ const TaskHeader = (props) => {
                 <input
                     type="checkbox"
                     checked={props.temptTask.completed}
-                    onChange={
-                        (e) => {
-                            props.setTemptTask({
-                                ...props.temptTask,
-                                completed: e.target.checked
-                            })
-                        }
-                    }
+                    onChange={(e) => { props.changeTemptTask('completed', e.target.checked) }}
                 />
                 <input
-                    required
+                    // required
                     type="text"
                     placeholder='title'
                     value={props.temptTask.title}
-                    onChange={
-                        (e) => {
-                            props.setTemptTask({
-                                ...props.temptTask,
-                                title: e.target.value
-                            })
-                        }
-                    }
+                    onChange={(e) => { props.changeTemptTask('title', e.target.value) }}
                 />
             </div>
             <div className={styles['right-wrapper']}>
                 <input type="checkbox"
                     checked={props.temptTask.important}
-                    onChange={
-                        (e) => {
-                            props.setTemptTask({
-                                ...props.temptTask,
-                                important: e.target.checked
-                            })
-                        }
-                    }
+                    onChange={(e) => { props.changeTemptTask('important', e.target.checked) }}
                 />
-                <input type="checkbox" />
+                <input type="checkbox"
+                    checked={props.active}
+                    onChange={() => { props.setActive(!props.active) }}
+                />
             </div>
         </div>
     )
