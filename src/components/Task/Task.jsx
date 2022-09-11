@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React from 'react'
+import useSetObj from '../../hooks/useSetObj'
 import useWatchState from '../../hooks/useWatchState'
 
 import styles from './index.css'
@@ -7,15 +8,9 @@ import TaskFooter from './TaskFooter'
 import TaskHeader from './TaskHeader'
 
 const Task = (props) => {
-    const [temptTask, setTemptTask] = useState(props.initTask)
-    const [active, setActive] = useState(false)
+    const [temptTask, setTemptTask] = useSetObj(props.initTask)
 
-    function changeTemptTask(key, value) {
-        temptTask[key] = value
-        setTemptTask({ ...temptTask, })
-    }
-
-    // useWatchState('temptTask', temptTask)
+    useWatchState('temptTask', temptTask)
 
 
     return (
@@ -26,29 +21,21 @@ const Task = (props) => {
                 // 可以直接修改
                 // active === true
                 // 需按下按鈕才修改
-                temptTask={temptTask}
-                changeTemptTask={changeTemptTask}
-                active={active}
-                setActive={setActive}
+                active={true}
+                initTask={temptTask}
+                setTask={setTemptTask}
             />
-            {(() => {
-                if (active) {
-                    return (
-                        <>
-                            <hr className={styles['hr']} />
-                            <TaskBody
-                                temptTask={temptTask}
-                                setTemptTask={setTemptTask}
-                            />
-                            <TaskFooter
-                                setActive={setActive}
-                                formTask={props.formTask}
-                                temptTask={temptTask}
-                            />
-                        </>
-                    )
-                }
-            })()}
+            <hr className={styles['hr']} />
+            <TaskBody
+                temptTask={temptTask}
+                setTask={setTemptTask}
+            />
+            <TaskFooter
+                setActive={props.setActive}
+                temptTask={temptTask}
+                setTask={setTemptTask}
+                formTask={props.formTask}
+            />
         </div>
     )
 }

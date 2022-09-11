@@ -9,9 +9,7 @@ import styles from './index.css'
 
 import Nav from './components/Nav'
 import AddTask from "./components/AddTask";
-import MyTask from './components/MyTask';
-import InProccess from './components/InProccess'
-import Completed from './components/Completed'
+import TaskListRender from "./components/TaskListRender";
 
 function Todo() {
   const taskHook = useTask()
@@ -25,9 +23,21 @@ function Todo() {
           <AddTask addTask={taskHook.addTask} />
           <Routes>
             {/* TODO: path="/" 給一個會自動連結到 "/mytask" 的元件 */}
-            <Route path="/" element={<MyTask filterTaskList={taskHook.filterTaskList} />} />
-            <Route path="/inproccess" element={<InProccess filterTaskList={taskHook.filterTaskList} />} />
-            <Route path="/completed" element={<Completed filterTaskList={taskHook.filterTaskList} />} />
+            <Route path="/" element={<TaskListRender
+              renderTaskList={taskHook.renderTaskList}
+              filter={''}
+              setTask={taskHook.updateTask}
+            />} />
+            <Route path="/inproccess" element={<TaskListRender
+              renderTaskList={taskHook.renderTaskList}
+              filter={false}
+              setTask={taskHook.updateTask}
+            />} />
+            <Route path="/completed" element={<TaskListRender
+              renderTaskList={taskHook.renderTaskList}
+              filter={true}
+              setTask={taskHook.updateTask}
+            />} />
           </Routes>
         </HashRouter>
       </div>

@@ -10,22 +10,14 @@ const TaskBody = (props) => {
                 <input type="date"
                     onChange={
                         (e) => {
-                            props.temptTask.deadline[0] = e.target.value
-
-                            props.setTemptTask({
-                                ...props.temptTask,
-                            })
+                            props.setTask('deadline', e.target.value, '0')
                         }
                     }
                 />
                 <input type="time"
                     onChange={
                         (e) => {
-                            props.temptTask.deadline[1] = e.target.value
-
-                            props.setTemptTask({
-                                ...props.temptTask,
-                            })
+                            props.setTask('deadline', e.target.value, '1')
                         }
                     }
                 />
@@ -45,10 +37,7 @@ const TaskBody = (props) => {
                     type="file"
                     onChange={
                         (e) => {
-                            props.setTemptTask({
-                                ...props.temptTask,
-                                title: e.target.value
-                            })
+                            props.setTask('file', e.target.value)
                         }
                     }
                 />
@@ -60,10 +49,8 @@ const TaskBody = (props) => {
                     placeholder='Type your memo here...'
                     onChange={
                         (e) => {
-                            props.setTemptTask({
-                                ...props.temptTask,
-                                title: e.target.value
-                            })
+                            console.log(e.target)
+                            props.setTask('comment', e.target.value)
                         }
                     }
                 />

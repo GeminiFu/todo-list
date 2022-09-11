@@ -29,7 +29,7 @@ const useTask = function () {
     }]
     const [taskList, setTaskList] = useState(initTaskList)
 
-    // useWatchState('taskList', taskList)
+    useWatchState('taskList', taskList)
 
     function addTask(task) {
         task.id = taskList.length
@@ -37,32 +37,56 @@ const useTask = function () {
         setTaskList([...taskList, task])
     }
 
-    function filterTaskList(filters = []) {
+    function renderTaskList(filter) {
         const filtList = []
 
-        if (!filters.length) {
-            for (const i in taskList) {
-                // TODO: 把 push 改成unshift render 的行為變得很奇怪
-                filtList.push(taskList[i])
-            }
 
-            return filtList
+        if (filter === '') {
+            return orderTaskList(taskList)
         }
 
-        for (const i in taskList) {
-            for (const j in filters) {
-                if (taskList[i].filters[j]) {
-                    filtList.push(taskList[i])
+        taskList.forEach(task => {
+            if (task.completed === filter) {
+                filtList.push(task)
+            }
+        })
+
+        return orderTaskList(filtList)
+
+        function orderTaskList(filterList) {
+            const orderList = []
+
+            filterList.forEach(task => {
+                if (task.important) {
+                    orderList.push(task)
                 }
-            }
-        }
+            })
+            filterList.forEach(task => {
+                if (!task.important) {
+                    orderList.push(task)
+                }
+            })
 
-        return filtList
+            return orderList
+        }
+    }
+
+    function updateTask(newTask, id) {
+        const newTaskList = taskList.map(task => {
+            if (task.id === id) {
+                return newTask
+            } else {
+                return task
+            }
+        })
+
+        setTaskList(newTaskList)
     }
 
     return {
         addTask,
-        filterTaskList,
+        renderTaskList,
+        updateTask,
     }
 }
 

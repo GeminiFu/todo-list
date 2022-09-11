@@ -9,25 +9,31 @@ const TaskHeader = (props) => {
             <div className={styles['left-wrapper']}>
                 <input
                     type="checkbox"
-                    checked={props.temptTask.completed}
-                    onChange={(e) => { props.changeTemptTask('completed', e.target.checked) }}
+                    checked={props.initTask.completed}
+                    onChange={(e) => { props.setTask('completed', e.target.checked) }}
                 />
                 <input
-                    // required
+                    // TODO: required
                     type="text"
                     placeholder='title'
-                    value={props.temptTask.title}
-                    onChange={(e) => { props.changeTemptTask('title', e.target.value) }}
+                    value={props.initTask.title}
+                    onChange={(e) => { props.setTask('title', e.target.value) }}
                 />
             </div>
             <div className={styles['right-wrapper']}>
                 <input type="checkbox"
-                    checked={props.temptTask.important}
-                    onChange={(e) => { props.changeTemptTask('important', e.target.checked) }}
+                    checked={props.initTask.important}
+                    onChange={(e) => { props.setTask('important', e.target.checked) }}
                 />
                 <input type="checkbox"
                     checked={props.active}
-                    onChange={() => { props.setActive(!props.active) }}
+                    onChange={
+                        () => {
+                            if (!props.active) {
+                                props.setActive(true)
+                            }
+                        }
+                    }
                 />
             </div>
         </div>
